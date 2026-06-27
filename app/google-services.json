@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "748248967777",
+    "project_id": "orbatao-378fb",
+    "storage_bucket": "orbatao-378fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748248967777:android:5e22fc3ad4c6b61c381820",
+        "android_client_info": {
+          "package_name": "com.orbatao.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJdM0g3mG8WlB9SWG7UbWmpvUf9W6s1Us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
