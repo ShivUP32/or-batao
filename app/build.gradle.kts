@@ -3,6 +3,8 @@ plugins {
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.kotlin.serialization)
   alias(libs.plugins.google.services)
+  alias(libs.plugins.firebase.crashlytics)
+  alias(libs.plugins.firebase.perf)
 }
 
 android {
@@ -88,4 +90,6 @@ dependencies {
   implementation(libs.firebase.auth)
   implementation(libs.firebase.firestore)
   implementation(libs.play.services.auth)
+  implementation(libs.firebase.crashlytics)
+  implementation(libs.firebase.perf)
 }
