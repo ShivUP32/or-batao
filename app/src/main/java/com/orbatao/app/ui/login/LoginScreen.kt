@@ -11,10 +11,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
@@ -23,6 +25,7 @@ fun LoginScreen(
     onPhoneClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -69,8 +72,7 @@ fun LoginScreen(
             // Sign In Cards/Buttons
             Button(
                 onClick = {
-                    // Firebase Google Sign In trigger would go here.
-                    // For demo/dev flow, we'll offer a Demo Login button below.
+                    Toast.makeText(context, "Google Sign-in requires SHA-1 configuration. Use Demo Sign-in or Phone Sign-in.", Toast.LENGTH_LONG).show()
                 },
                 shape = RoundedCornerShape(12.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -136,10 +138,12 @@ fun LoginScreen(
             // Demo/Developer Bypass Button
             OutlinedButton(
                 onClick = {
-                    // Perform a quick anonymous/mock login to make testing the feed easy
                     FirebaseAuth.getInstance().signInAnonymously()
                         .addOnSuccessListener {
                             onLoginSuccess()
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(context, "Demo Sign-in failed: ${e.message}", Toast.LENGTH_LONG).show()
                         }
                 },
                 shape = RoundedCornerShape(12.dp),
