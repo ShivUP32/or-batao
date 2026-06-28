@@ -24,8 +24,6 @@ fun MainNavigation() {
         entry<Login> {
           LoginScreen(
             onLoginSuccess = {
-              // Pop login and go to main
-              backStack.removeLastOrNull()
               backStack.add(Main)
             },
             onPhoneClick = {
@@ -36,9 +34,6 @@ fun MainNavigation() {
         entry<PhoneAuth> {
           PhoneAuthScreen(
             onAuthSuccess = {
-              // Clear stack and navigate to Main
-              backStack.removeLastOrNull() // pop PhoneAuth
-              backStack.removeLastOrNull() // pop Login
               backStack.add(Main)
             }
           )
@@ -49,7 +44,6 @@ fun MainNavigation() {
               backStack.add(Profile)
             },
             onLogout = {
-              backStack.removeLastOrNull()
               backStack.add(Login)
             }
           )
@@ -60,8 +54,6 @@ fun MainNavigation() {
               backStack.removeLastOrNull()
             },
             onLogout = {
-              backStack.removeLastOrNull() // pop Profile
-              backStack.removeLastOrNull() // pop Main
               backStack.add(Login)
             }
           )
